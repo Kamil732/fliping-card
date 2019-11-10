@@ -1,0 +1,48 @@
+body {
+    display: flex;
+    height: 90vh;
+    justify-content: center;
+    align-items: center;
+}
+.flip-card {
+    width: 360px;
+    height: 450px;
+    border-radius: 6px;
+    position: relative;
+    perspective: 500px;
+}
+.flip-card::before,
+.flip-card::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: white;
+    border-radius: 26px;
+    box-sizing: border-box;
+    border: 3px solid #171212;
+    transition: 0.6s transform linear;
+    backface-visibility: hidden;
+}
+.flip-card::after {
+    background-image:
+        repeating-linear-gradient(
+            -45deg,
+            #34b399,
+            #34b399 5px,
+            #8afae3 5px,
+            #8afae3 10px
+        );
+}
+.flip-card:hover::after {
+    transform: rotateY(-180deg);
+}
+.flip-card::before {
+    background: url('img/10hearts.png');
+    background-size: contain;
+    transform: rotateY(180deg);
+    background-color: white;
+}
+.flip-card:hover::before {
+    transform: rotate(360deg);
+}
